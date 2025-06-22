@@ -1,0 +1,13 @@
+post_install() {
+  echo "Activate and start the s7-updates-motd.timer"
+  systemctl enable --now s7-updates-motd.timer
+
+  systemctl daemon-reload
+}
+
+post_remove() {
+  echo "Deactivate and stop the s7-updates-motd.timer"
+  systemctl disable --now s7-updates-motd.timer
+
+  systemctl daemon-reload
+}
