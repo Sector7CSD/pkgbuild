@@ -1,0 +1,13 @@
+FROM archlinux:base-devel
+
+RUN pacman -Syu --noconfirm --needed \
+  base-devel \
+  git \
+  sudo \
+  gnupg \
+  fakeroot \
+  && useradd -m builder \
+  && echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+USER builder
+WORKDIR /home/builder/pkgbuild

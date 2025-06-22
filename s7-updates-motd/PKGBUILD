@@ -1,0 +1,26 @@
+_name="updates-motd"
+
+pkgname="s7-${_name}"
+pkgver=0.0.2
+pkgrel=1
+pkgdesc="Update the messages of the day with a list of the updateable packages every 4 hours"
+arch=('any')
+license=('MIT')
+makedepends=()
+depends=()
+
+_tag="v${pkgver}"
+_srcdir="${_name}-${pkgver}"
+
+source=("https://github.com/Sector7CSD/${_name}/archive/refs/tags/${_tag}.zip")
+sha256sums=('SKIP')
+backup=()
+
+package() {
+  install -Dm755 "$_srcdir/src/usr/local/bin/s7-updates-motd.sh" "$pkgdir/usr/local/bin/s7-updates-motd.sh"
+  install -Dm644 "$_srcdir/src/etc/systemd/system/s7-updates-motd.service" "$pkgdir/etc/systemd/system/s7-updates-motd.service"
+  install -Dm644 "$_srcdir/src/etc/systemd/system/s7-updates-motd.timer" "$pkgdir/etc/systemd/system/s7-updates-motd.timer"
+  install -Dm644 "$_srcdir/src/etc/pacman.d/hooks/99-s7-updates-motd.hook" "$pkgdir/etc/pacman.d/hooks/99-s7-updates-motd.hook"
+
+  install -Dm644 "$_srcdir/LICENSE" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE"
+}

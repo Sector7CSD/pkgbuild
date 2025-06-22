@@ -1,0 +1,27 @@
+_name="s7cal"
+
+pkgname=s7-cal
+pkgver=0.0.2
+pkgrel=1
+pkgdesc="Colorful replacement for cal"
+arch=('x86_64')
+license=('MIT')
+makedepends=(cmake yaml-cpp)
+depends=(gcc-libs yaml-cpp)
+backup=()
+
+_tag="v${pkgver}"
+_srcdir="s7cal-${pkgver}"
+
+source=("https://github.com/Sector7CSD/${_name}/archive/refs/tags/${_tag}.zip")
+sha256sums=('SKIP')
+
+build() {
+  cmake -B build -S "${_srcdir}"
+  cmake --build build --parallel
+}
+
+package() {
+  install -Dm755 "build/s7cal" "${pkgdir}/usr/local/bin/s7cal"
+  install -Dm644 "${_srcdir}/LICENSE" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE"
+}

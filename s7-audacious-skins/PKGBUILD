@@ -1,0 +1,56 @@
+pkgname=s7-audacious-skins
+pkgver=v0.0.1
+pkgrel=1
+pkgdesc="Collection of Winamp 2 Skins to be used in Audacious"
+arch=('any')
+license=('unknown')
+makedepends=()
+depends=()
+source=(
+  "Arora Efex Mix(orange).wsz::https://r2.webampskins.org/skins/0e080d248005c66b6f1f5d257ac10613.wsz"
+  "Bento_Classified.wsz::https://r2.webampskins.org/skins/d6010aa35bed659bc1311820daa4b341.wsz"
+  "CGs_LCARS_skin.wsz::https://r2.webampskins.org/skins/e7cf633537c28b7e45df00b05cfab11d.wsz"
+  "darkside_v_1_1.wsz::https://r2.webampskins.org/skins/2ebd38a9448f4dd419b3de97c9ac229a.wsz"
+  "MultipassIC_-_Carbon.wsz::https://r2.webampskins.org/skins/c820b000abbc5a87dde9b685face4b34.wsz"
+  "n3ON_.wsz::https://r2.webampskins.org/skins/550c4abbfb4b2b686ae02d5bb83360ca.wsz"
+  "Neologic_Red.wsz::https://r2.webampskins.org/skins/dae13f544e7917fa9b9c17cc2e480452.wsz"
+  "ORTV_Violet_Amp.wsz::https://r2.webampskins.org/skins/002e973c4ab4e2186afb1757cce3ea59.wsz"
+  "Warp9amp.wsz::https://r2.webampskins.org/skins/e71e9bd145de7f3b5dd2b270fcee3dab.wsz"
+  "FusionAmp_DFX-5.wsz::https://r2.webampskins.org/skins/7f86d247f1ffbf57dfed7bc598217dde.wsz"
+  "Melodies_Of_Life.wsz::https://r2.webampskins.org/skins/98deeeb5241369c4c11739b1d296ee04.wsz"
+)
+sha256sums=(
+  '57847cbba6777c12c194952fe2442fb02097d434abe5e5f56c79d2fbd6de1f2b'
+  '5a526d01240d8a4c642bda901a86726c4ede19327582b8b0be6189747542ab67'
+  'd235058b3142552ddff774f0dcdddf288766f9b9a0136c30869fd8accc92f4c1'
+  '3fcd4fc947ac6998679718ff8d1b4ca718688c3f469f14c7486dc0925aaaf9ec'
+  'e5f9ca537abc393eee97769a5f009c71ab6cda1d26c54f832d9cb0af02685785'
+  '9ecaa7a2c76416b8eeb5e1cc16ad0aa37983cdb0a2ba9205fb64cc922947300a'
+  '3fb43ca63021063c8ab2927445631b6d3f49c56ddd1c05388ac3bc37d15b844c'
+  '5f09c48673f86fd0e2619cb612d4d76eb27aab185a14eaa48a93952d9e8de2c6'
+  '33fc831a30a116b15398c1f8869c9264c40e28f7c5f45407c549a68474545317'
+  'd4743cfb8dd4b08ff19391029b27079b04f8386aa7e644b7d97bc16daf50c157'
+  'a55107dce6fee8d78602aa5649d08e430ef052fe94e8470ced6b483276ae4895'
+)
+noextract=(
+  "Arora Efex Mix(orange).wsz"
+  "Bento_Classified.wsz"
+  "CGs_LCARS_skin.wsz"
+  "darkside_v_1_1.wsz"
+  "MultipassIC_-_Carbon.wsz"
+  "n3ON_.wsz"
+  "Neologic_Red.wsz"
+  "ORTV_Violet_Amp.wsz"
+  "Warp9amp.wsz"
+  "FusionAmp_DFX-5.wsz"
+  "Melodies_Of_Life.wsz"
+)
+
+backup=()
+
+package() {
+  install -d "$pkgdir/usr/share/audacious/Skins"
+  for skin in "${noextract[@]}"; do
+    install -Dm644 "$srcdir/$skin" "$pkgdir/usr/share/audacious/Skins/$skin"
+  done
+}

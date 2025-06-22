@@ -1,0 +1,21 @@
+pkgname=s7-ttf-baijamjuree
+pkgver=20181108
+pkgrel=1
+pkgdesc="Bai Jamjuree: A Thai + Latin sans-serif font family"
+arch=('any')
+license=('custom:OFL')
+makedepends=()
+depends=()
+source=("https://github.com/cadsondemak/Bai-Jamjuree/archive/refs/heads/master.zip")
+sha256sums=('SKIP')
+backup=()
+
+package() {
+  install -d "${pkgdir}/usr/share/fonts/TTF"
+
+  for ttf in "$srcdir"/Bai-Jamjuree-master/fonts/*.ttf; do
+    install -Dm644 "$ttf" "${pkgdir}/usr/share/fonts/TTF/$(basename "$ttf")"
+  done
+
+  install -Dm644 "$srcdir/Bai-Jamjuree-master/OFL.txt" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}

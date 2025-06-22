@@ -1,0 +1,29 @@
+_name="mystini"
+
+pkgname="s7-${_name}"
+pkgver=0.0.2
+pkgrel=1
+pkgdesc="A utility for manipulating and reading ini files"
+arch=('x86_64')
+license=('MIT')
+makedepends=(cmake pandoc fmt)
+depends=(gcc-libs fmt)
+backup=()
+
+_tag="v${pkgver}"
+_srcdir="${_name}-${pkgver}"
+
+source=("https://github.com/Sector7CSD/${_name}/archive/refs/tags/${_tag}.zip")
+sha256sums=('SKIP')
+
+build() {
+  cmake -B build -S "${_srcdir}"
+  cmake --build build --parallel
+}
+
+package() {
+  install -Dm755 "build/src/${_name}" "${pkgdir}/usr/local/bin/${_name}"
+  install -Dm555 "build/${_name}.1" "${pkgdir}/usr/local/share/man/man1/${_name}.1"
+
+  install -Dm644 "${_srcdir}/LICENSE" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE"
+}
