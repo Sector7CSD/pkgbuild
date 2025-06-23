@@ -2,7 +2,7 @@ _name="s7cal"
 
 pkgname=s7-cal
 pkgver=0.0.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Colorful replacement for cal"
 arch=('x86_64')
 license=('MIT')
@@ -22,6 +22,6 @@ build() {
 }
 
 package() {
-  install -Dm755 "build/s7cal" "${pkgdir}/usr/local/bin/s7cal"
+  install -Dm755 "build/s7cal" "${pkgdir}/usr/bin/s7cal"
   install -Dm644 "${_srcdir}/LICENSE" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE"
 }

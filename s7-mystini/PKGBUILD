@@ -2,7 +2,7 @@ _name="mystini"
 
 pkgname="s7-${_name}"
 pkgver=0.0.2
-pkgrel=1
+pkgrel=2
 pkgdesc="A utility for manipulating and reading ini files"
 arch=('x86_64')
 license=('MIT')
@@ -22,8 +22,8 @@ build() {
 }
 
 package() {
-  install -Dm755 "build/src/${_name}" "${pkgdir}/usr/local/bin/${_name}"
-  install -Dm555 "build/${_name}.1" "${pkgdir}/usr/local/share/man/man1/${_name}.1"
+  install -Dm755 "build/src/${_name}" "${pkgdir}/usr/bin/${_name}"
+  install -Dm555 "build/${_name}.1" "${pkgdir}/usr/share/man/man1/${_name}.1"
 
   install -Dm644 "${_srcdir}/LICENSE" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE"
 }
