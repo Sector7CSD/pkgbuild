@@ -1,13 +1,13 @@
 _name="s7cal"
 
 pkgname=s7-cal
-pkgver=0.0.2
-pkgrel=2
+pkgver=0.0.3
+pkgrel=1
 pkgdesc="Colorful replacement for cal"
 arch=('x86_64')
 license=('MIT')
-makedepends=(cmake yaml-cpp)
-depends=(gcc-libs yaml-cpp)
+makedepends=(cmake pandoc yaml-cpp gettext)
+depends=(gcc-libs yaml-cpp gettext)
 backup=()
 
 _tag="v${pkgver}"
@@ -22,6 +22,9 @@ build() {
 }
 
 package() {
-  install -Dm755 "build/s7cal" "${pkgdir}/usr/bin/s7cal"
+  install -Dm755 "build/${_name}" "${pkgdir}/usr/bin/${_name}"
+  install -Dm555 "build/man/${_name}.1" "${pkgdir}/usr/share/man/man1/${_name}.1"
+  install -Dm644 "build/locale/de/LC_MESSAGES/${_name}.mo" "${pkgdir}/usr/share/locale/de/LC_MESSAGES/${_name}.mo"
+
   install -Dm644 "${_srcdir}/LICENSE" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE"
 }
