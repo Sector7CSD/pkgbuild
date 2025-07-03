@@ -1,5 +1,6 @@
 pkg/
 src/
+.idea/
 *.zip
 *.pkg.tar.zst
 *.wsz
