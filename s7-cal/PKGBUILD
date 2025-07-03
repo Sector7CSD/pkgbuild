@@ -1,7 +1,7 @@
 _name="s7cal"
 
 pkgname=s7-cal
-pkgver=0.0.3
+pkgver=0.0.4
 pkgrel=1
 pkgdesc="Colorful replacement for cal"
 arch=('x86_64')
