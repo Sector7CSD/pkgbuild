@@ -1,0 +1,18 @@
+# Maintainer: Christian Klein <Sector7@gmx.de>
+pkgname=s7-mc-tokyonight-skin
+pkgver=1.0
+pkgrel=1
+pkgdesc="A clean, modern Midnight Commander skin inspired by the Tokyo Night Neovim theme — perfect for fans of elegant dark UI with soft contrast and vibrant accents."
+arch=('any')
+license=('MIT')
+depends=()
+source=("https://github.com/Lairizzle/mc-tokyonight-skin/archive/refs/heads/master.zip")
+sha256sums=('SKIP')
+backup=()
+
+package() {
+
+    install -Dm644 "$srcdir/mc-tokyonight-skin-master/LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    install -d "$pkgdir/usr/share/mc/skins"
+    install -Dm644 "$srcdir/mc-tokyonight-skin-master/tokyonight.ini" "$pkgdir/usr/share/mc/skins"
+}
