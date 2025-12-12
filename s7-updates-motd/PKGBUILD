@@ -2,7 +2,7 @@ _name="updates-motd"
 
 pkgname="s7-${_name}"
 pkgver=0.0.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Update the messages of the day with a list of the updateable packages every 4 hours"
 arch=('any')
 license=('MIT')
