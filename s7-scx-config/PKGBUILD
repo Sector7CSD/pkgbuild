@@ -1,0 +1,15 @@
+# Maintainer: Christian Klein <Sector7@gmx.de>
+pkgname=s7-scx-config
+pkgver=1.0
+pkgrel=1
+pkgdesc="Default configuration for scx-scheds / scx-tools to use scx_rusty"
+arch=('any')
+license=('MIT')
+depends=(scx-scheds scx-tools)
+source=()
+backup=()
+
+package() {
+    install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    install -Dm644 scx_loader.toml "${pkgdir}/etc/scx_loader.toml"
+}
