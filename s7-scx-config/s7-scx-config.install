@@ -1,12 +1,16 @@
 post_install() {
-  echo "Activate and start the scx_loader.service"
-  systemctl daemon-reload
-  systemctl enable --now scx_loader.service
-  
+    echo "==> scx_loader.toml installed."
+    echo "==> Enable and start the service if desired:"
+    echo "    systemctl enable --now scx_loader.service"
+}
+
+post_upgrade() {
+    systemctl daemon-reload
+    echo "==> Reloaded systemd units."
 }
 
 post_remove() {
-  echo "Deactivate and stop the systemctl daemon-reload"
-  systemctl disable --now systemctl daemon-reload
-  systemctl daemon-reload
+    systemctl daemon-reload
+    echo "==> scx_loader.service deactivated/removed if it existed."
 }
+

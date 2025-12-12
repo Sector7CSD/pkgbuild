@@ -2,7 +2,7 @@ _name="mystini"
 
 pkgname="s7-${_name}"
 pkgver=0.0.2
-pkgrel=2
+pkgrel=3
 pkgdesc="A utility for manipulating and reading ini files"
 arch=('x86_64')
 license=('MIT')
@@ -14,7 +14,7 @@ _tag="v${pkgver}"
 _srcdir="${_name}-${pkgver}"
 
 source=("https://github.com/Sector7CSD/${_name}/archive/refs/tags/${_tag}.zip")
-sha256sums=('SKIP')
+sha256sums=('25ba91c84d241d8663b137f485d8c01549c9e93a70d255c7cdf473c2a3f71bb8')
 
 build() {
   cmake -B build -S "${_srcdir}"

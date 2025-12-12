@@ -1,13 +1,16 @@
 # Maintainer: Christian Klein <Sector7@gmx.de>
 pkgname=s7-scx-config
 pkgver=1.0.1
-pkgrel=1
+pkgrel=3
 pkgdesc="Default configuration for scx-scheds / scx-tools to use scx_rusty"
 arch=('any')
 license=('MIT')
 depends=(scx-scheds scx-tools)
-source=()
-backup=()
+install="${pkgname}.install"
+source=('LICENSE' 'scx_loader.toml')
+sha256sums=('890d00a17bd6863fa07f59171ee805df4fa8477a128768e4f7681a186f320d2d'
+            'dea244aae115ab25e08c4a5310fbfe9dc2b8efb82ad7c33a9756a83cd16c5cdf')
+backup=('etc/scx_loader.toml')
 
 package() {
     install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"

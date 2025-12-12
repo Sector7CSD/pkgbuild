@@ -8,12 +8,13 @@ arch=('any')
 license=('MIT')
 makedepends=()
 depends=()
+install="${pkgname}.install"
 
 _tag="v${pkgver}"
 _srcdir="${_name}-${pkgver}"
 
 source=("https://github.com/Sector7CSD/${_name}/archive/refs/tags/${_tag}.zip")
-sha256sums=('SKIP')
+sha256sums=('62e02c6cdca014f7a6c3874046ddf2f7135ccdc33b4973769141d07a0efb3d02')
 backup=()
 
 package() {

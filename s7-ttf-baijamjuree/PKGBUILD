@@ -7,7 +7,7 @@ license=('custom:OFL')
 makedepends=()
 depends=()
 source=("https://github.com/cadsondemak/Bai-Jamjuree/archive/refs/heads/master.zip")
-sha256sums=('SKIP')
+sha256sums=('e4e82f6c0da28a8b67a316f8a3bd43b57da7d5dfc8634a3fb1f0ddd0d167304d')
 backup=()
 
 package() {
