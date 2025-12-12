@@ -1,6 +1,6 @@
 # Maintainer: Christian Klein <Sector7@gmx.de>
 pkgname=s7-scx-config
-pkgver=1.0
+pkgver=1.0.1
 pkgrel=1
 pkgdesc="Default configuration for scx-scheds / scx-tools to use scx_rusty"
 arch=('any')

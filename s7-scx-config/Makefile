@@ -1,12 +1,10 @@
-# Ziel-Paketdatei
+PKG_NAME := $(shell basename $(CURDIR))
 PKG_FILE := $(shell makepkg --packagelist | xargs basename)
 
-# Baue das Paket, wenn das PKGBUILD oder Dateien in src geändert wurden
-$(PKG_FILE): PKGBUILD $(wildcard src/*)
-	makepkg -sf
+$(PKG_FILE): PKGBUILD
+	cd .. && ./build-in-docker.sh $(PKG_NAME)
 
-# Standardziel zum Paketbau
 all: $(PKG_FILE)
 
 clean:
-	rm -rf *.pkg.tar.zst ./pkg
+	rm -rf *.pkg.tar.zst *.pkg.tar.zst.sig *.zip ./pkg ./build ./src

@@ -1,0 +1,12 @@
+post_install() {
+  echo "Activate and start the scx_loader.service"
+  systemctl daemon-reload
+  systemctl enable --now scx_loader.service
+  
+}
+
+post_remove() {
+  echo "Deactivate and stop the systemctl daemon-reload"
+  systemctl disable --now systemctl daemon-reload
+  systemctl daemon-reload
+}
