@@ -1,5 +1,7 @@
 FROM archlinux:base-devel
 
+RUN echo "Server = http://dolonka:8081/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+
 RUN pacman -Syu --noconfirm --needed \
   base-devel \
   git \
@@ -10,4 +12,10 @@ RUN pacman -Syu --noconfirm --needed \
   && echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 USER builder
+
+RUN git clone https://aur.archlinux.org/yay.git /tmp/yay \
+    && cd /tmp/yay \
+    && makepkg -si --noconfirm \
+    && rm -rf /tmp/yay
+
 WORKDIR /home/builder/pkgbuild
