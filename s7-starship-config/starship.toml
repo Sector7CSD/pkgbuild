@@ -1,0 +1,51 @@
+# ~/.config/starship.toml
+
+format = """
+[\\[](bold cyan)\
+$username\
+[@](bold yellow)\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+[\\]](bold cyan)\
+$character\
+"""
+
+add_newline = false
+
+[username]
+show_always = true
+style_user = 'bold blue'
+format = '[$user]($style)'
+
+[hostname]
+ssh_only = false
+style = 'bold green'
+format = '[$hostname:]($style)'
+
+[directory]
+style = 'bold purple'
+format = '[$path]($style)'
+truncation_length = 99
+truncation_symbol = '…/'
+truncate_to_repo = false
+
+[git_branch]
+style = 'bold bright-green'
+format = ' [$branch$stashed$untracked$deleted$renamed$modified$staged]($style)'
+
+[git_status]
+style = 'bold purple'
+format = '([<$all_status$ahead_behind>]($style))'
+ahead = '[⇡${count}](bright-blue)'
+diverged = '[⇕⇡${ahead_count}⇣${behind_count}](bright-red)'
+behind = '[⇣${count}](bright-yellow)'
+up_to_date = '[✓](bright-green)'
+staged = '[+](green)'
+conflicted = '[C](bright-red)'
+modified = '[M](bright-yellow)'
+untracked = '[U](bright-cyan)'
+
+[character]
+format = '[\$](bold red) '
