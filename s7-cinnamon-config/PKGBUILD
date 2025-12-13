@@ -1,0 +1,21 @@
+# Maintainer: Christian Klein <Sector7@gmx.de>
+pkgname=s7-cinnamon-config
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Default configuration for cinnamon"
+arch=('any')
+license=('MIT')
+depends=()
+source=('LICENSE' 'panel-launchers.json' 'window-list.json' 'workspace-switcher.json')
+backup=()
+sha256sums=('890d00a17bd6863fa07f59171ee805df4fa8477a128768e4f7681a186f320d2d'
+            '69a8de16a13cc3682251a08f4c8c652d6b776cead7ee39d14ab90194375bebd1'
+            '380f3567c17abbf2df015f91df80ae50e044758a3c5e5bfe08dced7bc88318ac'
+            '701c5c991182140bd64cbf8b1512d1c2dd8e8b48de97a52de90582c82af86e4c')
+
+package() {
+    install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+    install -Dm644 panel-launchers.json "${pkgdir}/usr/share/sector7/cinnamon/panel-launchers@cinnamon.org/3.json"
+    install -Dm644 window-list.json "${pkgdir}/usr/share/sector7/cinnamon/window-list@cinnamon.org/4.json"
+    install -Dm644 workspace-switcher.json "${pkgdir}/usr/share/sector7/cinnamon/workspace-switcher@cinnamon.org/5.json"
+}
