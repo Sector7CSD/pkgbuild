@@ -1,8 +1,8 @@
 _name="s7cal"
 
 pkgname=s7-cal
-pkgver=0.0.4
-pkgrel=2
+pkgver=0.0.5
+pkgrel=1
 pkgdesc="Colorful replacement for cal"
 arch=('x86_64')
 license=('MIT')
@@ -14,7 +14,7 @@ _tag="v${pkgver}"
 _srcdir="s7cal-${pkgver}"
 
 source=("https://github.com/Sector7CSD/${_name}/archive/refs/tags/${_tag}.zip")
-sha256sums=('3635e1d70934fe6323fdc6f74d4759f7c5f43e01658ea3812ba3636d4d78e062')
+sha256sums=('f0a13140d49f0d8e95e4914f0265d65d5caa3dca2b9dd22763bee0063414f0d9')
 
 build() {
   cmake -B build -S "${_srcdir}"
