@@ -46,6 +46,7 @@ staged = '[+](green)'
 conflicted = '[C](bright-red)'
 modified = '[M](bright-yellow)'
 untracked = '[U](bright-cyan)'
+deleted = '[✘](bright-red)'
 
 [character]
 format = '[\$](bold red) '
