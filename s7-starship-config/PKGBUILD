@@ -9,7 +9,7 @@ depends=(starship)
 source=('LICENSE' 'starship.toml')
 backup=('usr/share/sector7/starship/starship.toml')
 sha256sums=('890d00a17bd6863fa07f59171ee805df4fa8477a128768e4f7681a186f320d2d'
-            '56a2dc4129a6fb6571e2f6cc38e3d48eb8f3ba907fe5c54f6b8406fbaa1c096c')
+            'a7b990d5130f4f54fe4d46a04efcb57466f5a829fbeb855dae97f2b2849bb238')
 
 package() {
     install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
